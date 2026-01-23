@@ -1,78 +1,69 @@
 # Claude Command: BRAIN Method — Project Skeleton & Task List
 
-#
-
-# Copyright (c) 2025 John Hewitt ([john@helpirl.com](mailto:john@helpirl.com))
-
+# Copyright (c) 2025 John Hewitt (john@helpirl.com)
 # Licensed under the MIT License. See LICENSE file for details.
 
-#
+> **Purpose:** Create a minimal, consistent folder + file scaffold for an idea using the **BRAIN** method, then convert it into an actionable, time-boxed task list.
 
-> **Purpose:** Create a minimal, consistent folder + file scaffold for an idea using the **BRAIN** method, then help convert it into an actionable, time‑boxed task list.
+## Invocation
 
----
-
-## BRAIN (concise & enforced)
-
-* **Begin (B)** — **100% Human**
-  Capture the spark fast (≤3 min). Dump raw thoughts, goals, constraints.
-
-  > **Behavioral rule:** During **Begin**, Claude must **only acknowledge receipt** of the idea.
-  > No analysis, no summarization, no suggestions, no reframing.
-
-* **Refine (R)** — **90% Human**
-  In ≤15 min, clarify scope, assumptions, success criteria, risks, resources.
-
-  > Claude’s role is limited to asking **targeted clarifying questions** only.
-
-* **Arrange (A)** — **90% AI (proposal only)**
-  Draft a **proposed** breakdown of work into **≤2‑hour** tasks, numbered, with dependencies.
-
-  > All Arrange output is **provisional** until explicit human approval.
-
-* **Iterate (I)** — **90% AI**
-  Execute tasks one at a time. Log outcomes, blockers, and actuals. Improve incrementally.
-
-* **Next (N)** — **100% Human**
-  Decide the very next action: next task, different project, pause, or add to TTDs.
+```
+/brain "Your Idea Title"
+/brain "Your Idea Title" --base Tasks/
+```
 
 ---
 
-## Defaults
+## BRAIN Phases
 
-* **Base path**: `Tasks/`
-* **Folder name**: PascalCase derived from the idea title (stop‑words removed).
-  Example: “figure out how to talk to AI” → `MyGreatFeature`
-* **Task files**: `N.ShortName.md` (e.g., `01.ResearchAPIs.md`)
-* **Task time**: 30 minutes
-* **Never** overwrite existing files. Append and continue numbering.
+| Phase | Owner | Time | Claude's Role |
+|-------|-------|------|---------------|
+| **B**egin | 100% Human | ≤3 min | Acknowledge receipt only. No analysis, suggestions, or reframing. |
+| **R**efine | 90% Human | ≤15 min | Ask targeted clarifying questions only. |
+| **A**rrange | 90% AI | — | Propose task breakdown. All output provisional until human approval. |
+| **I**terate | 90% AI | — | Execute tasks one at a time. Log outcomes and blockers. |
+| **N**ext | 100% Human | — | Decide next action: continue, pause, switch projects, or add to backlog. |
 
-**Example target shape**:
+> **Critical:** During Begin, Claude must not analyze, summarize, suggest, or reframe.
+> Violation = stop and restart the phase.
+
+---
+
+## Defaults & Derivations
+
+| Setting | Default | Notes |
+|---------|---------|-------|
+| **Base path** | `Tasks/` | Root folder for all projects |
+| **Task duration** | ≤2 hours | Maximum time per task |
+| **IdeaFolder** | PascalCase(IdeaTitle) | Stop-words removed |
+| **ShortName** | 2–4 words, PascalCase | 3–24 chars, no punctuation |
+
+**Examples:**
+- "figure out how to talk to AI" → `TalkToAI/`
+- Task file: `01.ResearchAPIs.md`
+
+---
+
+## Output Structure
 
 ```
 Tasks/
-  MyGreatFeature/
+  {IdeaFolder}/
     CONTEXT.md        # Begin + Refine
-    01.SomeTask.md     # Arrange output (after approval)
-    Status.md         # Iterate + tracking
+    Status.md         # Progress tracking
+    01.TaskName.md    # Task files (after Arrange approval)
 ```
 
 ---
 
-## What to create
+## File Templates
 
-### 1. `{Base}/{IdeaFolder}/CONTEXT.md`
-
-Begin + Refine live together in this file.
-
-* Title, brief purpose
-* **Begin**: raw notes (unaltered)
-* **Refine**: structured clarification
+### 1. CONTEXT.md
 
 ```md
 # {IdeaTitle}
 
-> Owner: {Name}  ·  Created: {YYYY-MM-DD}  ·  Updated: {YYYY-MM-DD}
+> Owner: {Name}  ·  Created: {YYYY-MM-DD}
 
 ## Begin (raw)
 <!-- 3-minute brain dump. Do not edit or reinterpret. -->
@@ -80,72 +71,47 @@ Begin + Refine live together in this file.
 ## Refine (scope)
 - **Goal**:
 - **In / Out of scope**:
-- **Assumptions**:
-- **Constraints**:
-- **Definition of Done (DoD)**:
-- **Risks / Mitigations**:
-- **Resources** (people, docs, APIs, repos):
-- **Dependencies**:
-- **Rough Milestones**:
+- **Definition of Done**:
+- **Constraints**: (optional)
+- **Risks**: (optional)
+- **Resources**: (optional)
+- **Dependencies**: (optional)
 ```
 
----
-
-### 2. `{Base}/{IdeaFolder}/Status.md`
-
-Tracks execution state and progress.
+### 2. Status.md
 
 ```md
 # Status — {IdeaTitle}
 
-## Iterate checklist (per work session)
-- [ ] Pick next task
-- [ ] Set a 2-hour timer
-- [ ] Mid-session check (~75%) — continue / split / park
-- [ ] Log outcome in task file
-- [ ] Update table and decide Next
-
 ## Tasks
 | No. | Name | Status | Est. | Actual | Notes |
-|---:|---|---|---:|---:|---|
-| 1 | … | Todo | 2h |  |  |
+|----:|------|--------|-----:|-------:|-------|
+| 1   | …    | Todo   | 2h   |        |       |
 
-> **Ownership rules**:
-> - Claude may update **Status** (Todo / In‑Progress / Blocked)
-> - Human owns **Actual Time** unless explicitly provided
+> Claude may update **Status** column. Human owns **Actual** column.
 
-## Paused / Abandoned
-- **State**: Active | Paused | Abandoned
-- **Reason**:
-- **Date**: YYYY-MM-DD
-- **Revisit trigger (if paused)**:
-
-## Links
-- [CONTEXT.md](./CONTEXT.md)
-- Task files listed above
+## Project State
+- **Status**: Active | Paused | Abandoned
+- **Reason**: (if paused/abandoned)
+- **Revisit trigger**: (if paused)
 ```
 
----
+### 3. Task Files (`N.ShortName.md`)
 
-### 3. Task files (created **only after Arrange approval**)
-
-`N.ShortName.md`
+Created **only after Arrange approval**.
 
 ```md
 # {N}. {ShortName}
 
 **Goal**:
 **Est.**: ≤2 hours
-**Prereqs / Dependencies**:
+**Dependencies**:
 
 ## Steps
 - [ ] …
 
 ## Definition of Done
 - [ ] …
-
-## Notes
-…
 
 ## Outcome (fill after Iterate)
 - **Actual Time**:
@@ -155,73 +121,45 @@ Tracks execution state and progress.
 
 ---
 
-## Safety & versioning rules
+## Safety Rules
 
-* Prefer **small, incremental changes**.
-* Never delete or rename files without explicit approval.
-* Never overwrite `CONTEXT.md`. If a rewrite is requested, back it up as `CONTEXT.v{n}.md`.
-* If in a git repo, commit at each phase with clear messages:
-
-  * `chore(brain): scaffold MyGreatFeature`
-  * `feat(arrange): propose tasks 1–5`
-
----
-
-## Inputs
-
-* **IdeaTitle** (required)
-* **BasePath** (optional; default `Tasks/`)
-* **OpenAfterCreate** (optional; default `CONTEXT.md`)
-
-### Derivations
-
-* **IdeaFolder** = PascalCase(IdeaTitle, stop‑words removed)
-* **ShortName** = 2–4 words, PascalCase, 3–24 chars, no punctuation
+- **Never overwrite** existing files. Append and continue numbering.
+- **Never delete or rename** files without explicit approval.
+- **Never renumber** existing tasks.
+- **Never infer approval** — wait for explicit yes.
+- Prefer **small, incremental changes**.
+- If in a git repo, commit at each phase:
+  - `chore(brain): scaffold {IdeaFolder}`
+  - `feat(arrange): propose tasks 1–5`
 
 ---
 
-## Claude — Required execution order
+## Execution Order
 
-1. **Confirm**: Echo `IdeaTitle`, `BasePath`, `TaskTime`, derived `IdeaFolder`.
+1. **Confirm**: Echo `IdeaTitle`, `BasePath`, derived `IdeaFolder`.
 2. **Create folders**: Ensure `{BasePath}/{IdeaFolder}/` exists.
-3. **Create or append `CONTEXT.md`**:
-
-   * If missing: create from template
-   * If present: prepend new Begin/Refine sections with date tag
+3. **Create or append CONTEXT.md**:
+   - If missing: create from template
+   - If present: prepend new Begin/Refine sections with date tag
 4. **Refine interview**:
-
-   * Ask **3–5 questions max per turn**
-   * Map each question to a missing Refine bullet
-   * Allow `TBD` answers
+   - Ask **3–5 questions max per turn**
+   - Map each question to a missing Refine field
+   - Allow `TBD` answers
 5. **Propose Arrange list**:
-
-   * 5–10 tasks
-   * ≤ `{TaskTime}` each
-   * Include brief DoD + dependencies
-   * **Do not create files yet**
+   - 5–10 tasks, ≤2 hours each
+   - Include brief DoD + dependencies
+   - **Do not create files yet**
 6. **Wait for approval** (explicit yes or edits)
-7. **Create task files**:
-
-   * Continue numbering from highest existing N
-8. **Create / update `Status.md`**
-9. **Open file**: `{BasePath}/{IdeaFolder}/{OpenAfterCreate}`
-10. **Report**: Short summary of changes + suggested Next
+7. **Create task files**: Continue numbering from highest existing N
+8. **Create/update Status.md**
+9. **Report**: Summary of changes + suggested Next action
 
 ---
 
-## Idempotency
+## Quick Start
 
-* If scaffold exists, append only.
-* Never renumber existing tasks.
-* Never infer approval.
+```
+/brain "My Great Feature"
+```
 
----
-
-## Quick start (copy/paste)
-
-> **Do**: Create a BRAIN scaffold using this spec.
-> **IdeaTitle**: "${YOUR_IDEA_TITLE}"
-> **BasePath**: `Tasks/`
-> **OpenAfterCreate**: `CONTEXT.md`
-
-*Then follow the execution order above exactly.*
+Then follow the execution order above.

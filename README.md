@@ -45,6 +45,46 @@ If you remove all AI-related files, the project still works.
 
 ---
 
+## Template Behavior (important)
+
+This repository serves **two purposes at once**:
+
+- It is a **live public repository**
+- It is a **template copied** when you click **Use this template**
+
+Due to a GitHub limitation, files under `.github/` apply to **both** the template
+repository itself *and* to any repositories created from it.
+
+There is no separate "template-only" configuration.
+
+### Pattern 1 — Placeholder configuration (used here)
+
+Some GitHub configuration files (notably `.github/ISSUE_TEMPLATE/config.yml`)
+intentionally contain **placeholders**, for example:
+
+```yaml
+url: https://github.com/OWNER/REPO/discussions
+```
+
+This is **by design**, not an oversight.
+
+Why this pattern is used:
+
+- Prevents forks and template-based projects from accidentally routing issues
+  back to HelpIRL
+- Forces each new project owner to consciously configure their own links
+- Matches the approach used by GitHub's official templates
+
+If you create a repository from this template:
+
+> **You should update `.github/ISSUE_TEMPLATE/config.yml`**
+> to point to your repository's Discussions or support channel.
+
+The template repository itself relies on the contact information above
+for questions and support.
+
+---
+
 ## Key Files
 
 | File | Purpose |
@@ -67,17 +107,21 @@ If you remove all AI-related files, the project still works.
    - Replace this file with real project documentation
    - Describe what the project does and how humans use it
 
-3. **Update `CONTEXT.md`**
+3. **Update `.github/ISSUE_TEMPLATE/config.yml`**
+   - Replace `OWNER/REPO` with your GitHub username and repository name
+   - This routes questions to your project's Discussions instead of Issues
+
+4. **Update `CONTEXT.md`**
    - Describe the actual project structure
    - Define build/test entry points
    - Document constraints that AI should not guess
 
-4. **Work using Tasks**
+5. **Work using Tasks**
    - Break work into feature folders under `Tasks/`
    - Each task is a small, self-contained unit of work
    - Git commits occur at task boundaries
 
-5. **Let AI assist safely**
+6. **Let AI assist safely**
    - AI follows the rules in `CLAUDE.md`
    - Real-world actions go through approved tools
    - Humans review results, not shell commands
