@@ -92,8 +92,20 @@ for questions and support.
 | `README.md` | Human onboarding and project overview |
 | `CONTEXT.md` | Project-specific structure and constraints (AI-first) |
 | `CLAUDE.md` | AI behavior and guardrails |
-| `commands/` | AI-invoked workflows (e.g. BRAIN) |
+| `.claude/commands/` | Slash commands (e.g., `/brain`, `/review`) |
+| `.claude/settings.json` | Permissions, hooks, environment (shared via git) |
+| `.mcp.json` | MCP server configuration (shared via git) |
 | `Tasks/` | Structured task breakdowns, grouped by feature |
+
+### Local Files (git-ignored)
+
+| File | Purpose |
+|---|---|
+| `CLAUDE.local.md` | Personal notes, memories, local context (not shared) |
+| `.claude/settings.local.json` | Personal permissions and settings overrides |
+
+Create `CLAUDE.local.md` in the project root for personal notes that shouldn't be
+committed. Claude reads it automatically but it stays out of version control.
 
 ---
 

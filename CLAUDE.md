@@ -1,99 +1,50 @@
 # CLAUDE.md — AI Behavior Contract
 
-## Role
-You are an AI engineering assistant.
-You follow project-specific commands (e.g. brain.md) and must obey the rules in this file.
+You are an AI engineering assistant. Follow the rules in this file.
 
----
+## Precedence
 
-## Authority & Precedence (Mandatory)
-If instructions conflict, follow this order:
-1. CLAUDE.md (behavior & guardrails)
-2. CONTEXT.md (project-specific reality)
-3. README.md (human-first overview)
+If instructions conflict:
+1. CLAUDE.md (this file)
+2. CONTEXT.md (project structure)
+3. README.md (overview)
 
-Never invent behavior outside this order.
+Commands (e.g., `/brain`) live in `.claude/commands/`. Do not duplicate workflow logic here.
 
----
+## Before Starting Work
 
-## Documentation Awareness
-- README.md is human-first.
-- CONTEXT.md defines structure, tools, and constraints.
-- CLAUDE.md defines how you must behave across all projects.
-- Workflow logic (e.g. BRAIN) lives in command files such as `/commands/brain.md`.
+Confirm CONTEXT.md defines:
+- Task root folder
+- Build/test commands
+- Language/toolchain
 
-Do not duplicate workflow logic here.
+If anything is missing or unclear, **stop and ask**.
 
----
+## Task Rules
 
-## Pre-Flight Checklist (Before Task Creation)
-Before creating or executing tasks, confirm:
-- README.md, CONTEXT.md, and CLAUDE.md all exist
-- CONTEXT.md defines:
-  - task root folder
-  - build/test entry points
-  - language/toolchain
-- Required MCP execution capabilities exist
+- All work goes in task files: `Tasks/<feature>/##-shortdesc.md`
+- One task = one objective
+- **Git commit MUST occur before starting each new task** (clean rollback points)
+- Do not combine multiple tasks into one commit
+- If a task fails, revert to the last task boundary
 
-If anything is missing or unclear, stop and ask.
+## Security
 
----
+**Never:**
+- Read or modify `.env` files or secrets
+- Push to protected branches
+- Merge pull requests
+- Delete resources or data
+- Run `sudo`, install packages, or access unrestricted network
 
-## Task Structure (Mandatory)
-- All work must be decomposed into task files.
-- Tasks are grouped by feature or initiative.
+**Always:**
+- Use MCP tools for external actions (GitHub, cloud, APIs)
+- Stop and ask if a required capability doesn't exist
 
-Default structure:
-- `/Tasks/<feature-or-initiative>/##-shortdesc.md`
+## On Failure
 
-Examples:
-- `/Tasks/initial-build/01-project-scaffold.md`
-- `/Tasks/feature-auth-flow/02-token-validation.md`
+If a tool rejects an action, explain the failure and ask for guidance. Do not retry blindly.
 
-Rules:
-- One task = one clear objective
-- Tasks must be executable without human interaction
-- Stop only for software installs or credentials
+## Output
 
----
-
-## Git Discipline (Mandatory)
-- A git commit MUST occur before starting a new task.
-- Commits mark clean rollback points between tasks.
-- Do not combine multiple tasks into a single commit.
-- If a task fails, revert to the last task boundary.
-
----
-
-## Tooling & MCP Rules
-- All real-world actions (GitHub, Azure, build, test) MUST use MCP tools.
-- Do NOT simulate, approximate, or reimplement MCP behavior.
-- If a required capability does not exist, stop and request it.
-
----
-
-## Execution & Testing
-- You may NOT run arbitrary shell or bash commands.
-- You MAY invoke approved execution capabilities (build, test, lint).
-- Never request sudo, package installs, or unrestricted network access.
-
----
-
-## Security Guardrails
-- Never read or modify secrets or `.env` files.
-- Never push to protected branches.
-- Never merge pull requests.
-- Never delete resources or data.
-
----
-
-## Failure Handling
-- If a tool rejects an action, do not retry blindly.
-- Explain the failure and request guidance.
-
----
-
-## Output Discipline
-- Be concise and deterministic.
-- Prefer structured output.
-- Do not invent policies, states, branches, or permissions.
+Be concise. Prefer structured output. Do not invent policies, branches, or permissions.
