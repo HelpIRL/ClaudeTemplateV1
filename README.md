@@ -140,5 +140,45 @@ committed. Claude reads it automatically but it stays out of version control.
 
 ---
 
+## Adding to an Existing Project
+
+Already have a project and want to add these AI guardrails? You don't need to start from scratch.
+
+### Quick Setup
+
+1. **Copy the template-update command** into your project:
+   ```bash
+   mkdir -p .claude/commands
+   curl -sL https://raw.githubusercontent.com/HelpIRL/ClaudeTemplateV1/main/.claude/commands/template-update.md \
+     -o .claude/commands/template-update.md
+   ```
+
+2. **Run the command** in Claude Code:
+   ```
+   /template-update
+   ```
+
+   This will fetch and install:
+   - `CLAUDE.md` — AI behavior rules
+   - `.claude/commands/*.md` — Slash commands
+
+3. **Create your project-specific files** (these are NOT overwritten by template updates):
+   - `CONTEXT.md` — Describe your project structure, build commands, toolchain
+   - `README.md` — Keep your existing documentation
+   - `.claude/settings.json` — Configure permissions as needed
+
+### What Gets Updated vs. What Stays Yours
+
+| Updated by `/template-update` | Never touched (yours to customize) |
+|-------------------------------|-----------------------------------|
+| `CLAUDE.md` | `README.md` |
+| `.claude/commands/*.md` | `CONTEXT.md` |
+| | `.claude/settings.json` |
+| | `.github/*` |
+
+Run `/template-update` periodically to get improvements to the base AI behavior and commands without affecting your project-specific configuration.
+
+---
+
 ## Task Structure Example
 

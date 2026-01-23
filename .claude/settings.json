@@ -1,7 +1,5 @@
 {
-  "$schema": "https://code.claude.com/schemas/settings.json",
-  "_comment": "Project-level Claude Code settings. Shared via git. See: https://code.claude.com/docs/en/settings",
-
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
     "allow": [
       "Read(./)",
@@ -31,7 +29,5 @@
     ]
   },
 
-  "env": {
-    "_comment": "Environment variables available to Claude Code sessions"
-  }
+  "env": {}
 }
