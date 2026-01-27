@@ -8,6 +8,19 @@ AI tools (such as Claude) to work safely and predictably alongside humans.
 
 ---
 
+## Table of Contents
+
+- [Maintainer & Contact](#maintainer--contact)
+- [License](#license)
+- [What This Template Is](#what-this-template-is)
+- [Template Behavior (important)](#template-behavior-important)
+- [Key Files](#key-files)
+- [Typical Workflow](#typical-workflow)
+- [Adding to an Existing Project](#adding-to-an-existing-project)
+- [Task Structure Example](#task-structure-example)
+
+---
+
 ## Maintainer & Contact
 
 This project is maintained by **HelpIRL LLC**.
