@@ -16,16 +16,31 @@ using the BRAIN method. Read `.claude/commands/brain.md` for full BRAIN details.
 
 Display this to the user:
 
-> **Welcome to BRAIN-assisted development.**
+> **Welcome to the HelpIRL Claude Template** 👋
 >
-> The BRAIN method structures work into phases: **B**egin (capture the idea),
-> **R**efine (clarify scope), **A**rrange (plan tasks), **I**terate (execute),
-> **N**ext (decide what's next).
+> This repository is pre-wired with a practical, opinionated structure for working
+> with Claude in a way that stays readable, repeatable, and team-friendly.
 >
-> **Your role:** You're the lead developer. You make decisions, set direction,
-> and approve each phase. I help structure your thinking and execute the details.
+> **You'll find:**
+> - A ready-to-use `.claude/` setup (commands, hooks, and skills)
+> - `.github/` structure to encourage clean commits and reviews
+> - A lightweight workflow designed to scale from solo work to teams
 >
-> Each phase concludes with a git commit—clean rollback points for every step.
+> This template uses the **BRAIN method** to establish shared context before any
+> code is written.
+>
+> **Begin (B):**
+> This is idea capture only — no design, no planning, no solutions yet.
+>
+> Once that's done, I'll guide you through:
+> - **Refine (R):** clarifying goals and constraints
+> - **Arrange (A):** identifying developer tasks and structure
+>
+> You can move fast or go deep — the structure is here to support either.
+>
+> ---
+>
+> **What is this project? Give me the elevator pitch in 2-3 sentences.**
 
 ### Bootstrap Flow
 
@@ -34,7 +49,7 @@ Display this to the user:
    - Existing folder structure
 
 2. **Begin Phase**:
-   - Ask: "What is this project? Give me the elevator pitch in 2-3 sentences."
+   - Wait for user to describe their project (they were prompted in welcome message)
    - Acknowledge receipt only—no analysis, suggestions, or reframing
    - Commit: `chore(init): begin project definition`
 
@@ -55,10 +70,26 @@ Display this to the user:
    - "Your project is configured. Features are broken into tasks under `Tasks/`."
    - "Standard practice: commit when each task is complete so work is captured
      and you have clean rollback points."
+   - Explain the file structure that will be created:
+     ```
+     Tasks/
+       {FeatureName}/
+         CONTEXT.md        # Feature context (Begin + Refine)
+         Status.md         # Progress tracking
+         01-TaskName.md    # Individual task files
+         02-TaskName.md
+         ...
+     ```
+   - **Important:** Each task MUST be its own file. This provides:
+     - Clear audit trail for what was done
+     - Safe rollback points per task
+     - Readable history even with auto-accept enabled
 
 6. **Transition**:
    - Ask if ready to scaffold their first feature
-   - If yes, proceed with BRAIN Arrange phase for the feature
+   - If yes, follow `.claude/commands/brain.md` to create the task file structure
+   - **Do not skip creating task files** — the Arrange phase must produce individual
+     `##-TaskName.md` files, not just notes in CONTEXT.md
 
 ---
 
