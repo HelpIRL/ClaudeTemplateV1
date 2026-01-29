@@ -171,25 +171,32 @@ Already have a project and want to add these AI guardrails? You don't need to st
    /template-update
    ```
 
-   This will fetch and install:
-   - `CLAUDE.md` — AI behavior rules
-   - `.claude/commands/*.md` — Slash commands
+3. **Choose what to install** when prompted:
+   - **Commands** — AI behavior rules (`CLAUDE.md`) + slash commands
+   - **Skills** — Behavioral patterns (e.g., systematic-debugging)
+   - **Hooks** — Workflow scripts (pre-commit tests, edit reminders)
+   - **All** — Everything above
 
-3. **Create your project-specific files** (these are NOT overwritten by template updates):
-   - `CONTEXT.md` — Describe your project structure, build commands, toolchain
-   - `README.md` — Keep your existing documentation
-   - `.claude/settings.json` — Configure permissions as needed
+4. **Create your project-specific files** (these are never overwritten):
+   - `CONTEXT.md` — Your project structure, build commands, toolchain
+   - `.claude/settings.json` — Your permissions and hook configuration
 
 ### What Gets Updated vs. What Stays Yours
 
-| Updated by `/template-update` | Never touched (yours to customize) |
-|-------------------------------|-----------------------------------|
-| `CLAUDE.md` | `README.md` |
-| `.claude/commands/*.md` | `CONTEXT.md` |
-| | `.claude/settings.json` |
-| | `.github/*` |
+| Your selection | Files updated |
+|----------------|---------------|
+| Commands | `CLAUDE.md`, `.claude/README.md`, `.claude/commands/*.md` |
+| Skills | `.claude/skills/*.md` |
+| Hooks | `.claude/hooks/README.md`, `.claude/hooks/*.sh` |
 
-Run `/template-update` periodically to get improvements to the base AI behavior and commands without affecting your project-specific configuration.
+| Never touched (yours to customize) |
+|-----------------------------------|
+| `README.md` |
+| `CONTEXT.md` |
+| `.claude/settings.json` |
+| `.github/*` |
+
+Run `/template-update` periodically to get improvements without affecting your project-specific configuration.
 
 ---
 
