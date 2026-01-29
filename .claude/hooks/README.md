@@ -59,6 +59,63 @@ Hooks can return JSON to control behavior:
 {"suppressOutput": true}
 ```
 
+## Included Hooks
+
+### pre-edit.sh
+Blocks edits on protected branches (main/master). Enabled by default.
+
+### post-edit-reminder.sh
+Reminds about uncommitted changes after edits. **Disabled by default.**
+
+To enable, add to `.claude/settings.json`:
+
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/post-edit-reminder.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+Adjust the `THRESHOLD` variable in the script to control when reminders appear (default: 5 files).
+
+### pre-commit-test.sh
+Runs tests before allowing commits. Blocks commit if tests fail. **Disabled by default.**
+
+- Reads test command from `CONTEXT.md` (looks for `Test: \`command\`` pattern)
+- If no test command defined, shows helpful feedback
+- If tests fail, blocks the commit
+
+To enable, add to `.claude/settings.json`:
+
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash(git commit*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/pre-commit-test.sh",
+            "timeout": 120
+          }
+        ]
+      }
+    ]
+  }
+}
+
 ## Resources
 
 - [Claude Code Hooks Documentation](https://code.claude.com/docs/en/hooks)

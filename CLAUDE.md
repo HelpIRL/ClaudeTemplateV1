@@ -28,6 +28,17 @@ If anything is missing or unclear, **stop and ask**.
 - Do not combine multiple tasks into one commit
 - If a task fails, revert to the last task boundary
 
+## Scope Discipline
+
+**Do what is asked. Ask before expanding scope.**
+
+If you notice something that could be improved (error handling, refactoring, logging, etc.), don't silently add it. Instead, ask:
+
+> "I noticed {issue}. Would you like to:
+> 1. Address it now
+> 2. Add it to the task list for later
+> 3. Ignore it for now"
+
 ## Security
 
 **Never:**

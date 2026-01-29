@@ -38,9 +38,10 @@
 | **IdeaFolder** | PascalCase(IdeaTitle) | Stop-words removed |
 | **ShortName** | 2–4 words, PascalCase | 3–24 chars, no punctuation |
 
-**Examples:**
-- "figure out how to talk to AI" → `TalkToAI/`
-- Task file: `01.ResearchAPIs.md`
+**Example:**
+- Idea: "Add user authentication"
+- Folder: `Tasks/UserAuthentication/`
+- Task files: `01-ResearchAuthOptions.md`, `02-ImplementLogin.md`
 
 ---
 
@@ -156,10 +157,4 @@ Created **only after Arrange approval**.
 
 ---
 
-## Quick Start
-
-```
-/brain "My Great Feature"
-```
-
-Then follow the execution order above.
+> **Usage notes:** `/brain "My Great Feature"` — then follow the execution order above.
