@@ -14,19 +14,19 @@ Commands (e.g., `/brain`) live in `.claude/commands/`. Do not duplicate workflow
 ## Before Starting Work
 
 Confirm CONTEXT.md defines:
-- Task root folder
+- Intent root folder
 - Build/test commands
 - Language/toolchain
 
 If anything is missing or unclear, **stop and ask**.
 
-## Task Rules
+## Intent Rules
 
-- All work goes in task files: `Tasks/<feature>/##-shortdesc.md`
-- One task = one objective
-- **Git commit MUST occur before starting each new task** (clean rollback points)
-- Do not combine multiple tasks into one commit
-- If a task fails, revert to the last task boundary
+- All work goes in intent files: `Intents/<feature>/##-shortdesc.md`
+- One intent = one objective
+- **Git commit MUST occur before starting each new intent** (clean rollback points)
+- Do not combine multiple intents into one commit
+- If an intent fails, revert to the last intent boundary
 
 ## Scope Discipline
 
@@ -36,7 +36,7 @@ If you notice something that could be improved (error handling, refactoring, log
 
 > "I noticed {issue}. Would you like to:
 > 1. Address it now
-> 2. Add it to the task list for later
+> 2. Add it to the intent list for later
 > 3. Ignore it for now"
 
 ## Security

@@ -28,5 +28,5 @@ changed_files=$(git status --porcelain 2>/dev/null | wc -l)
 THRESHOLD=5
 
 if [ "$changed_files" -ge "$THRESHOLD" ]; then
-  echo "{\"feedback\": \"📝 You have $changed_files uncommitted files. Consider committing at a task boundary.\"}"
+  echo "{\"feedback\": \"📝 You have $changed_files uncommitted files. Consider committing at an intent boundary.\"}"
 fi

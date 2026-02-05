@@ -17,7 +17,7 @@ You're set up. Here's the quick map.
 BRAIN walked you through project setup:
 - **Begin** — captured your idea
 - **Refine** — clarified constraints
-- **Arrange** — created task structure
+- **Arrange** — created intent structure
 
 Your project is now configured in `CONTEXT.md`.
 
@@ -29,7 +29,7 @@ Your project is now configured in `CONTEXT.md`.
 | `CONTEXT.md` | Your project structure and constraints |
 | `.claude/commands/` | Slash commands you invoke |
 | `.claude/skills/` | Behavioral patterns Claude applies automatically |
-| `Tasks/` | Where work gets broken down |
+| `Intents/` | Where work gets broken down |
 
 ### Commands vs Skills
 
@@ -39,8 +39,8 @@ Your project is now configured in `CONTEXT.md`.
 ### What's Next
 
 1. Describe what you want to build
-2. Claude creates task files under `Tasks/`
-3. Work through tasks, commit at boundaries
+2. Claude creates intent files under `Intents/`
+3. Work through intents, commit at boundaries
 
 ### Learn More
 

@@ -37,7 +37,7 @@ You don't need to choose between embedding guidance in `CLAUDE.md` and using sep
 Keep rules that apply to **every project** in `CLAUDE.md`:
 - Security constraints (never read `.env`)
 - Scope discipline (ask before expanding)
-- Task hygiene (one task = one objective)
+- Intent hygiene (one intent = one objective)
 
 These are non-negotiable defaults.
 
@@ -60,7 +60,7 @@ Human-controlled actions invoked with `/command-name`.
 
 | Command | Description |
 |---------|-------------|
-| `/brain` | BRAIN method for project skeleton and task planning |
+| `/brain` | BRAIN method for project skeleton and intent planning |
 | `/commit` | Smart commit with conventional format |
 | `/review` | Code review current changes |
 | `/status` | Project status overview |

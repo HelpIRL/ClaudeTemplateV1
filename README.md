@@ -50,7 +50,7 @@ Then run `/template-update` in Claude Code and choose what to install.
 | `.claude/commands/` | Slash commands (`/brain`, `/commit`, `/review`) |
 | `.claude/skills/` | Behavioral patterns applied automatically |
 | `.claude/hooks/` | Workflow scripts (pre-commit, post-edit) |
-| `Tasks/` | Structured task breakdown system |
+| `Intents/` | Structured intent breakdown system |
 
 ---
 
@@ -66,7 +66,7 @@ Once configured, your project will have:
 
 | Command | Purpose |
 |---------|---------|
-| `/brain "Feature"` | Scaffold a new feature with task breakdown |
+| `/brain "Feature"` | Scaffold a new feature with intent breakdown |
 | `/commit` | Smart commit with conventional format |
 | `/review` | Code review current changes |
 | `/status` | Project status overview |
@@ -118,5 +118,5 @@ See [ClaudeTemplate.md](ClaudeTemplate.md) for license and attribution.
 │   ├── hooks/             # Workflow scripts
 │   └── settings.json      # Permissions and config
 ├── .github/               # Issue templates, PR templates
-└── Tasks/                 # Task breakdown structure
+└── Intents/               # Intent breakdown structure
 ```

@@ -15,13 +15,13 @@ Run these checks and present a concise summary:
    - Read `CONTEXT.md` for project structure and constraints
    - Note the build/test commands
 
-3. **Active Tasks**
-   - Check `Tasks/` for any in-progress work
-   - Find the most recently modified task folder
-   - If a `Status.md` exists, report current task status
+3. **Active Intents**
+   - Check `Intents/` for any in-progress work
+   - Find the most recently modified intent folder
+   - If a `Status.md` exists, report current intent status
 
 4. **Open Questions**
-   - Any blockers or decisions noted in task files?
+   - Any blockers or decisions noted in intent files?
 
 ## Output Format
 
@@ -38,7 +38,7 @@ Run these checks and present a concise summary:
 **Build:** `{command}` | **Test:** `{command}`
 
 **Active Work:**
-- {Task folder}: {current task or "no tasks started"}
+- {Intent folder}: {current intent or "no intents started"}
 - Status: {from Status.md or "unknown"}
 
 **Notes:**

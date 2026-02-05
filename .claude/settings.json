@@ -4,7 +4,7 @@
     "allow": [
       "Read(./)",
       "Edit(./src/**)",
-      "Edit(./Tasks/**)",
+      "Edit(./Intents/**)",
       "Bash(git status:*)",
       "Bash(git diff:*)",
       "Bash(git log:*)",

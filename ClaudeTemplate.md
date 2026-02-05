@@ -23,7 +23,7 @@ This project was scaffolded using the **HelpIRL Claude Template**.
 - **.claude/commands/** — Slash commands (`/brain`, `/commit`, `/review`, etc.)
 - **.claude/skills/** — Behavioral patterns Claude applies automatically
 - **.claude/hooks/** — Workflow scripts (pre-commit, post-edit)
-- **Tasks/** — Structured task breakdown system
+- **Intents/** — Structured intent breakdown system
 
 ---
 
@@ -62,7 +62,7 @@ Display:
 >
 > Once that's done, I'll guide you through:
 > - **Refine (R):** clarifying goals and constraints
-> - **Arrange (A):** identifying developer tasks and structure
+> - **Arrange (A):** identifying developer intents and structure
 >
 > ---
 >
@@ -101,28 +101,28 @@ Replace files with project-specific content:
 
 Commit: `chore(init): populate project configuration`
 
-### 6. Explain Task Workflow
+### 6. Explain Intent Workflow
 
 Tell the user:
 
-> Your project is configured. Features are broken into tasks under `Tasks/`.
+> Your project is configured. Features are broken into intents under `Intents/`.
 >
-> Standard practice: commit when each task is complete so work is captured
+> Standard practice: commit when each intent is complete so work is captured
 > and you have clean rollback points.
 >
 > Structure:
 > ```
-> Tasks/
+> Intents/
 >   {FeatureName}/
 >     CONTEXT.md        # Feature context (Begin + Refine)
 >     Status.md         # Progress tracking
->     01-TaskName.md    # Individual task files
+>     01-IntentName.md  # Individual intent files
 > ```
 
 ### 7. Transition
 
 - Ask if ready to scaffold their first feature
-- If yes, follow `/brain` command to create the task file structure
+- If yes, follow `/brain` command to create the intent file structure
 
 ---
 
@@ -159,9 +159,9 @@ These are the approved commands. Do not invent alternatives.
 - Test: `{command}`
 - Lint: `{command}` (if applicable)
 
-## Task Management
+## Intent Management
 
-Tasks are stored under `Tasks/{FeatureName}/` with numbered task files.
+Intents are stored under `Intents/{FeatureName}/` with numbered intent files.
 See `/brain` command for the BRAIN workflow.
 
 ## Constraints
@@ -195,7 +195,7 @@ for AI-assisted development. See `ClaudeTemplate.md` for details.
 
 ### Commands
 
-- `/brain` — Scaffold a new feature with task breakdown
+- `/brain` — Scaffold a new feature with intent breakdown
 - `/commit` — Smart commit with conventional format
 - `/review` — Code review
 - `/status` — Project status overview

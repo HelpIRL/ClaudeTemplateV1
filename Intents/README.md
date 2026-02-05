@@ -1,27 +1,27 @@
-# Tasks
+# Intents
 
-This folder contains structured task breakdowns for project work.
+This folder contains structured intent breakdowns for project work.
 
 ## Structure
 
 ```
-Tasks/
+Intents/
   {FeatureName}/
     CONTEXT.md        # Goal, scope, and requirements
     Status.md         # Progress tracking
-    01.TaskName.md    # Individual task files
-    02.TaskName.md
+    01.IntentName.md  # Individual intent files
+    02.IntentName.md
     ...
 ```
 
 ## Conventions
 
 - **One folder per feature or initiative**
-- **Tasks are numbered** (`01.`, `02.`, etc.) and executed in order
-- **Each task has a clear Definition of Done**
-- **Git commits occur at task boundaries**
+- **Intents are numbered** (`01.`, `02.`, etc.) and executed in order
+- **Each intent has a clear Definition of Done**
+- **Git commits occur at intent boundaries**
 
-## Creating Tasks
+## Creating Intents
 
 Use the `/brain` command to scaffold a new feature:
 
@@ -31,7 +31,7 @@ Use the `/brain` command to scaffold a new feature:
 
 This creates the folder structure and guides you through the BRAIN workflow.
 
-## Task States
+## Intent States
 
 | Status | Meaning |
 |--------|---------|
@@ -40,4 +40,4 @@ This creates the folder structure and guides you through the BRAIN workflow.
 | Blocked | Waiting on something external |
 | Done | Completed and committed |
 
-See [CLAUDE.md](../CLAUDE.md) for task execution rules.
+See [CLAUDE.md](../CLAUDE.md) for intent execution rules.

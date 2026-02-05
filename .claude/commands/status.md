@@ -8,7 +8,7 @@ Run these commands and summarize:
 
 1. `git status` - Working tree state
 2. `git log --oneline -5` - Recent commits
-3. Check `Tasks/` for in-progress work
+3. Check `Intents/` for in-progress work
 4. Check for uncommitted changes
 
 ## Output Format
@@ -23,8 +23,8 @@ Ahead/Behind: {if tracking remote}
 - {hash} {message}
 - ...
 
-## Active Tasks
-- {task folder}: {current task status}
+## Active Intents
+- {intent folder}: {current intent status}
 
 ## Pending Changes
 - {modified files summary}
