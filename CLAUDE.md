@@ -28,6 +28,18 @@ If anything is missing or unclear, **stop and ask**.
 - Do not combine multiple intents into one commit
 - If an intent fails, revert to the last intent boundary
 
+## Planning & Intents
+
+Before planning or implementing non-trivial work, check `Intents/` for an existing intent.
+
+- If no intent exists, ask:
+  > "This looks like a new feature. Want me to run `/brain` first to create an intent, or skip straight to implementation?"
+- If the user says **yes** → run the BRAIN flow first, then proceed
+- If the user says **skip** → proceed directly (for quick fixes, exploratory work, etc.)
+- Claude's built-in plan mode handles tactical "how" within a session
+- BRAIN intents handle persistent "what and why" across sessions
+- Both can be used together: intent first, then plan mode for execution
+
 ## Scope Discipline
 
 **Do what is asked. Ask before expanding scope.**
