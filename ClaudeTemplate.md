@@ -81,12 +81,27 @@ Display:
 
 ### 4. Refine Phase
 
-Ask targeted questions:
-- Primary language/framework?
-- Build command? (or "none yet")
-- Test command? (or "none yet")
-- Source code location? (e.g., `src/`, `lib/`, project root)
-- Any key constraints or considerations?
+Before asking anything, analyze what you already know:
+- The user's description from Begin
+- Existing files in the repo (package.json, pyproject.toml, build.gradle, etc.)
+- The git remote and repo name
+
+Then adapt. Every question should come with a suggestion based on what you inferred.
+Don't ask blank questions — propose what you think is true and let the user confirm or correct.
+
+**Goal of each question** (ask only what's relevant to this project):
+
+| Goal | When to ask | Example suggestion |
+|---|---|---|
+| **Identify the toolchain** | Code projects | "This looks like a TypeScript/React app — sound right?" or "For an Android app, I'd expect Kotlin + Gradle" |
+| **Identify build/test entry points** | Code projects with buildable output | "I see a `package.json` — is `npm run build` the right command, or something else?" |
+| **Identify where work lives** | When the repo has structure or the user hasn't said | "Looks like source code lives in `src/` — correct?" |
+| **Identify output format & audience** | Non-code or content-heavy projects | "Is this meant to produce a static site, a PDF, a set of docs?" |
+| **Surface constraints** | Always | "Anything I should know — deadlines, platform limits, team conventions, things to avoid?" |
+
+If the project isn't code at all (writing, research, planning), skip toolchain/build questions entirely.
+If you can't infer anything, it's fine to ask openly — but still suggest the most likely answer.
+
 - Commit: `chore(init): refine project context`
 
 ### 5. Populate Files
